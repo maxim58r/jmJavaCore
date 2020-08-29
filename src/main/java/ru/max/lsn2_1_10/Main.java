@@ -6,7 +6,7 @@ package ru.max.lsn2_1_10;
 public class Main {
     public static void main(String[] args) {
         System.out.println(doubleExpression(3.001004, 4.006007, 7.007011));
-        System.out.println(doubleExpression(-3.001004, 3.001004, 0));
+        System.out.println(doubleExpression(-3.001004, 3.001004, 0.00000001));
         System.out.println(doubleExpression(-14.007004, 7.006007, -7.000997));
         System.out.println(doubleExpression(0.000004, 4.006007, 4.006007));
         System.out.println(doubleExpression(-0.0, 0.0, 0.0));
@@ -18,7 +18,7 @@ public class Main {
     }
 
     public static boolean doubleExpression(double a, double b, double c) {
-        return Math.abs((c - b) - a) < 0.0001/* && Math.abs(c - a) - b < 0.0001*/;
+        return Math.abs((a + b) - c) < 0.0001;
 
     }
 }
