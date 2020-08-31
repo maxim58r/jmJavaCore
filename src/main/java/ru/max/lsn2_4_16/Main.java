@@ -13,15 +13,13 @@ public class Main {
 
     public int[] evenArray(int number) {
         int count = 0;
-        int temp = 0;
-        int[] arrTemp = new int[number];
-        for (int i = 0; i < number; i++) {
+        int[] arr = new int[number / 2];
+        for (int i = 1; i <= number; i++) {
             if (i % 2 == 0) {
-                arrTemp[i] = i;
+                arr[count] = i;
                 count++;
             }
         }
-        int[] arr = new int[count];
         return arr;
     }
 }
