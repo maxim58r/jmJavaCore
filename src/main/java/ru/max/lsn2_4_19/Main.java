@@ -44,25 +44,14 @@ public class Main {
 
     public static String printTextPerRole(String[] roles, String[] textLines) {
         StringBuilder sb = new StringBuilder();
-        int count = 1;
-//        for (int i = 0; i < textLines.length; i++) {
-//            String temp = textLines[i];
-//            textLines[i] = (count++) + ")" + temp ;
-//            System.out.println(textLines[i].toString());
-//        }
-
         for (String strTemp : roles) {
             sb.append(strTemp).append(":").append('\n');
-
+            int count = 0;
             for (String textLine : textLines) {
-
+                count++;
                 if (textLine.startsWith(strTemp + ":")) {
-
-                    String temp = textLine.replaceFirst("(^" + strTemp + ":" + "[\\s\\p{Punct}]?+" + ")", "");
-//                    String temp = textLine.replaceFirst("(^" + strTemp + ":" + "[\\s\\[\\]\\w]+)", "");
-//                    String temp = textLine.replaceFirst(strTemp + "[\\s:\\[\\]]+", "");
-                    sb.append(count++).append(")").append(temp).append('\n');
-//                    count++;
+                    String temp = textLine.replaceFirst("(^" + strTemp + ":"  + "[\\p{Punct}]?+" + ")", String.valueOf(count)+ ")"); // "[\\s\\p{Punct}]?+"
+                    sb.append(temp).append('\n');
                 }
             }
             sb.append('\n');

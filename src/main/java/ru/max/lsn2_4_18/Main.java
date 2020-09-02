@@ -30,6 +30,6 @@ public class Main {
         } else if (j == a2.length) {
             System.arraycopy(a1, 0, a3, 0, a1.length);
         }
-            return a3;
+        return a3;
     }
 }
