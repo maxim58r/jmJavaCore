@@ -31,26 +31,5 @@ public class Main {
             System.arraycopy(a1, 0, a3, 0, a1.length);
         }
             return a3;
-        /*for (int k = 0; k < a3.length; k++) {
-            if (a1.length - 1 < i) {
-                int temp = a2[j];
-                a3[k] = temp;
-                j++;
-            }
-            if (a2.length - 1 < j) {
-                int temp = a1[i];
-                a3[k] = temp;
-                i++;
-            }
-            if (a1[i] < a2[j]) {
-                int temp = a1[i];
-                a3[k] = temp;
-                i++;
-            } else {
-                int temp = a2[j];
-                a3[k] = temp;
-                j++;
-            }
-        }*/
     }
 }
