@@ -50,7 +50,7 @@ public class Main {
             for (String textLine : textLines) {
                 count++;
                 if (textLine.startsWith(strTemp + ":")) {
-                    String temp = textLine.replaceFirst("(^" + strTemp + ":"  + "[\\p{Punct}]?+" + ")", String.valueOf(count)+ ")"); // "[\\s\\p{Punct}]?+"
+                    String temp = textLine.replaceFirst("(^" + strTemp + ":" + "[\\p{Punct}]?+" + ")", String.valueOf(count) + ")");
                     sb.append(temp).append('\n');
                 }
             }
