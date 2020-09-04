@@ -5,8 +5,9 @@ package ru.max.lsn3_3_11;
  */
 public class Main {
     public static void main(String[] args) {
-//      Dog dog = new Dog();
-      Dog.catchCat();
+        Cat cat = new Cat();
+      Dog dog = new Dog();
+      dog.catchCat(cat);
     }
 
     public static class Cat {
@@ -20,10 +21,10 @@ public class Main {
             System.out.println("Гав!");
         }
 
-        public static void catchCat() {
+        public void catchCat(Cat cat) {
             System.out.println("Кошка поймана");
             sayHello();
-            new Cat().sayHello();
+            cat.sayHello();
         }
     }
 }
