@@ -2,58 +2,55 @@ package ru.max.lsn3_3_13;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(-5);
-        System.out.println(Math.abs(-5));
+        Robot robot = new Robot();
+        moveRobot(robot, 10, 12);
     }
 
     public static void moveRobot(Robot robot, int toX, int toY) {
-        int tempX = robot.getX() - toX;
-        int tempY = robot.getY() - toY;
+        int tempX = toX - robot.getX();
+        int tempY = toY - robot.getY();
 
         if (tempX < 0) {
-            if (robot.getDirection() != Direction.LEFT) {
+            while (robot.getDirection() != Direction.LEFT) {
                 robot.turnLeft();
-            } else {
-                for (int i = 0; i < Math.abs(tempX); i++) {
-                    robot.stepForward();
-                }
+            }
+            for (int i = 0; i < Math.abs(tempX); i++) {
+                robot.stepForward();
             }
         }
         if (tempX > 0) {
-            if (robot.getDirection() != Direction.RIGHT) {
+            while (robot.getDirection() != Direction.RIGHT) {
                 robot.turnLeft();
-            } else {
-                for (int i = 0; i < Math.abs(tempX); i++) {
-                    robot.stepForward();
-                }
+            }
+            for (int i = 0; i < Math.abs(tempX); i++) {
+                robot.stepForward();
             }
         }
         if (tempY < 0) {
-            if (robot.getDirection() != Direction.DOWN) {
+            while (robot.getDirection() != Direction.DOWN) {
                 robot.turnLeft();
-            } else {
-                for (int i = 0; i < Math.abs(tempY); i++) {
-                    robot.stepForward();
-                }
+            }
+            for (int i = 0; i < Math.abs(tempY); i++) {
+                robot.stepForward();
             }
         }
         if (tempY > 0) {
-            if (robot.getDirection() != Direction.UP) {
+            while (robot.getDirection() != Direction.UP) {
                 robot.turnLeft();
-            } else {
-                for (int i = 0; i < Math.abs(tempY); i++) {
-                    robot.stepForward();
-                }
+            }
+            for (int i = 0; i < Math.abs(tempY); i++) {
+                robot.stepForward();
             }
         }
     }
 
-    public class Robot {
-        private int coordX;
-        private int coordY;
+
+    public static class Robot {
+        private int coordX = 0;
+        private int coordY = 0;
 
         public Direction getDirection() {
-            return Direction.DOWN;
+            return Direction.UP;
         }
 
         public int getX() {
@@ -73,6 +70,18 @@ public class Main {
         }
 
         public void stepForward() {
+            if (getDirection() == Direction.UP) {
+                coordY++;
+            }
+            if (getDirection() == Direction.DOWN) {
+                coordY--;
+            }
+            if (getDirection() == Direction.RIGHT) {
+                coordX++;
+            }
+            if (getDirection() == Direction.LEFT) {
+                coordX--;
+            }
             // шаг в направлении взгляда
             // за один шаг робот изменяет одну свою координату на единицу
         }
