@@ -1,20 +1,6 @@
 package ru.max.lsn3_5_7;
 
-public class NegativeTextAnalyzer extends KeywordAnalyzer implements TextAnalyzer {
-
-    @Override
-    public Label processText(String text) {
-        Label lbl = null;
-        String[] st = text.split(" ");
-        for (String str : st) {
-            for (String kw : getKeywords()) {
-                if (str.equals(kw)) {
-                    return getLabel();
-                }
-            }
-        }
-        return Label.OK;
-    }
+public class NegativeTextAnalyzer extends KeywordAnalyzer {
 
     @Override
     String[] getKeywords() {
@@ -22,7 +8,7 @@ public class NegativeTextAnalyzer extends KeywordAnalyzer implements TextAnalyze
     }
 
     @Override
-    Label getLabel() {
+    protected Label getLabel() {
         return Label.NEGATIVE_TEXT;
     }
 }

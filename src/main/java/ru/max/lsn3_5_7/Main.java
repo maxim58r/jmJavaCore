@@ -14,7 +14,7 @@ public class Main {
         String text3 = "etrewur klj  jhxsgfjgf";
 
         Main main = new Main();
-        System.out.println(main.checkLabels(analyzers, text));
+        System.out.println(main.checkLabels(analyzers, text2));
     }
 
     public Label checkLabels(TextAnalyzer[] analyzers, String text) {
