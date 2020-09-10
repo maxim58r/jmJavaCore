@@ -1,5 +1,7 @@
 package ru.max.lsn3_5_6;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         byte[] bytes = {'e', 'r', 'r', 'o', 'r', '5', 120, -128, 127, 0};
@@ -29,12 +31,7 @@ public class Main {
 
         @Override
         public CharSequence subSequence(int start, int end) {
-            byte[] bt = new byte[end - start];
-            int count = 0;
-            for (int i = start; i < end; i++) {
-                bt[count++] = bytes[i];
-            }
-            return new AsciiCharSequence(bt);
+            return new AsciiCharSequence(Arrays.copyOfRange(bytes, start, end));
         }
 
         @Override
