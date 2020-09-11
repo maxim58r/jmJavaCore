@@ -7,16 +7,27 @@ public class Main {
     public static void main(String[] args) throws Exception {
         BankWorker bankWorker = new CreditManager();
         BankClient bankClient = new BankClient();
-        System.out.println(getCreditForClient(bankWorker,bankClient));
+        System.out.println(getCreditForClient(bankWorker, bankClient));
     }
-        public static boolean getCreditForClient(BankWorker bankWorker, BankClient bankClient) throws Exception {
-            try {
-                return bankWorker.checkClientForCredit(bankClient);
-            } catch (Exception e) {
-                if (e.toString().contains("BadCreditHistory")) {
-                    System.out.println("Проблемы с банковской историей");
-                }
-                return false;
-            }
+
+    public static boolean getCreditForClient(BankWorker bankWorker, BankClient bankClient) throws Exception {
+        try {
+            return bankWorker.checkClientForCredit(bankClient);
+        } catch (BadCreditHistoryException e) {
+            System.out.println("Проблемы с банковской историей");
+            return false;
+        } catch (ProblemWithLawException e) {
+            return false;
         }
+    }
 }
+//    public boolean getCreditForClient(BankWorker bankWorker, BankClient bankClient) throws Exception {
+//         try {
+//             return bankWorker.checkClientForCredit(bankClient);
+//         } catch (Exception e) {
+//             if (e.toString().contains("BadCreditHistory")) {
+//                 System.out.println("Проблемы с банковской историей");
+//             }
+//             return false;
+//         }
+//     }
