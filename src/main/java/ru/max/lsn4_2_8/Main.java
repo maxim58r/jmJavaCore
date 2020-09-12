@@ -12,10 +12,16 @@ public class Main {
             try {
                 robotConnection = robotConnectionManager.getConnection();
                 robotConnection.moveRobotTo(toX, toY);
+                return;
             } catch (RobotConnectionException rce) {
-
+                if (count == 0) {
+                    throw new RobotConnectionException("");
+                }
             } finally {
-                robotConnection.close();
+                try {
+                    robotConnection.close();
+                } catch (Exception e) {
+                }
             }
         }
     }
