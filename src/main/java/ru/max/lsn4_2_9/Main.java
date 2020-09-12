@@ -1,4 +1,6 @@
-package ru.max.lsn4_2_8;
+package ru.max.lsn4_2_9;
+
+import ru.max.lsn4_2_8.RobotConnectionException;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,22 +9,18 @@ public class Main {
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) throws Exception {
         int count = 3;
-        RobotConnection robotConnection = null;
         while (count-- > 0) {
-            try {
-                robotConnection = robotConnectionManager.getConnection();
+            try (RobotConnection robotConnection = robotConnectionManager.getConnection()) {
                 robotConnection.moveRobotTo(toX, toY);
                 return;
             } catch (RobotConnectionException rce) {
                 if (count == 0) {
                     throw new RobotConnectionException(rce.getMessage());
                 }
-            } finally {
-                try {
-                    robotConnection.close();
-                } catch (Exception e) {
-                }
+            } catch (Exception e) {
+
             }
+
         }
     }
 }
