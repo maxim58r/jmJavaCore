@@ -12,15 +12,12 @@ public class Main {
         while (count-- > 0) {
             try (RobotConnection robotConnection = robotConnectionManager.getConnection()) {
                 robotConnection.moveRobotTo(toX, toY);
-                return;
+                count = -1;
             } catch (RobotConnectionException rce) {
                 if (count == 0) {
-                    throw new RobotConnectionException(rce.getMessage());
+                    throw new RobotConnectionException("");
                 }
-            } catch (Exception e) {
-
             }
-
         }
     }
 }
