@@ -6,7 +6,6 @@ import java.util.Objects;
  * @author Serov Maxim
  */
 public class MailMessage extends AbstractSendable {
-
     private final String message;
 
     public MailMessage(String from, String to, String message) {

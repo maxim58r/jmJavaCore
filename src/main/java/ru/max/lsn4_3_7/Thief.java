@@ -3,20 +3,29 @@ package ru.max.lsn4_3_7;
 /**
  * @author Serov Maxim
  */
-public class Thief implements MailService{
+public class Thief implements MailService {
     private final int price;
+    private int sum = 0;
+
 
     public Thief(int price) {
         this.price = price;
     }
 
-    private int getStolenValue() {
-        int sum = 0;
+    int getStolenValue() {
         return sum;
     }
 
     @Override
     public Sendable processMail(Sendable mail) {
-        return null;
+        String contentParcel = null;
+        int contentPrice = 0;
+        if (mail.getClass().equals(MailPackage.class)) {
+            if (((MailPackage) mail).getContent().getPrice() >= price) {
+                sum += ((MailPackage) mail).getContent().getPrice();
+                contentParcel = "stones instead of " + ((MailPackage) mail).getContent().getContent();
+            }
+        }
+        return new MailPackage(mail.getFrom(), mail.getTo(), new Package(contentParcel, contentPrice));
     }
 }
