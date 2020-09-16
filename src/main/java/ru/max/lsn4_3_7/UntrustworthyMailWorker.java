@@ -12,19 +12,21 @@ public class UntrustworthyMailWorker implements MailService {
     }
 
     private MailService getRealMailService() {
-        MailService mailService = null;
-        for (MailService service : mailServices) {
-            mailService = service;
-        }
-        return mailService;
+        RealMailService realMailService = null;
+
+        return realMailService;
     }
 
-    private void serialTransmissionOfLetters() {
-
-    }
 
     @Override
     public Sendable processMail(Sendable mail) {
-        return null;
+        Sendable sendable = null;
+        for (int i = 0; i < mailServices.length; i++) {
+
+        }
+        for (MailService service : mailServices) {
+          sendable = service.processMail(mail);
+        }
+        return sendable;
     }
 }

@@ -14,7 +14,6 @@ public class Main {
     public static final String BANNED_SUBSTANCE = "banned substance";
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-
         Logger logger = Logger.getLogger("ru.max.lsn4_3_7.Main");
         logger.setLevel(Level.INFO);
         Inspector inspector = new Inspector();
@@ -53,6 +52,7 @@ public class Main {
         });
 
         System.out.println(thief.getStolenValue());
+
 //        System.out.println(worker.getRealMailService());
     }
 

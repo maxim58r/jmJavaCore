@@ -25,7 +25,8 @@ public class Thief implements MailService {
                 sum += ((MailPackage) mail).getContent().getPrice();
                 contentParcel = "stones instead of " + ((MailPackage) mail).getContent().getContent();
             }
-        }
-        return new MailPackage(mail.getFrom(), mail.getTo(), new Package(contentParcel, contentPrice));
+            return new MailPackage(mail.getFrom(), mail.getTo(), new Package(contentParcel, contentPrice));
+        } else return mail;
+
     }
 }
