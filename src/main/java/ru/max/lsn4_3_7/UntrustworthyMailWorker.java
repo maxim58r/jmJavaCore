@@ -5,28 +5,26 @@ package ru.max.lsn4_3_7;
  */
 public class UntrustworthyMailWorker implements MailService {
     private final MailService[] mailServices;
+    private final RealMailService realMailService = new RealMailService();
 
     public UntrustworthyMailWorker(MailService[] mailServices) {
         this.mailServices = mailServices;
-
     }
 
-    private MailService getRealMailService() {
-        RealMailService realMailService = null;
-
+    public MailService getRealMailService() {
         return realMailService;
     }
 
-
     @Override
     public Sendable processMail(Sendable mail) {
-        Sendable sendable = null;
-        for (int i = 0; i < mailServices.length; i++) {
-
+//        Sendable sendable = mailServices[0].processMail(mail);
+//        for (int i = 1; i < mailServices.length; i++) {
+//            mailServices[i].processMail(sendable);
+//        }
+        for (MailService mailService :
+                mailServices) {
+            mailService.processMail(mail);
         }
-        for (MailService service : mailServices) {
-          sendable = service.processMail(mail);
-        }
-        return sendable;
+        return getRealMailService().processMail(mail);
     }
 }

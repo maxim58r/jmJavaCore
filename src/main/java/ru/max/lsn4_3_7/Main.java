@@ -23,7 +23,7 @@ public class Main {
         UntrustworthyMailWorker worker = new UntrustworthyMailWorker(variousWorkers);
         Package pack1 = new Package("ВВЖ", 32);
         Package pack2 = new Package("ракетный двигатель ", 2500000);
-        Package pack3 = new Package("stones", 1000);
+        Package pack3 = new Package("stones", 11000);
         Package pack4 = new Package(BANNED_SUBSTANCE, 99);
         Package pack5 = new Package("tiny bomb", 9000);
         AbstractSendable[] correspondence = {
