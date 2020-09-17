@@ -5,7 +5,11 @@ package ru.max.lsn4_3_7;
  */
 public class Thief implements MailService {
     private final int price;
-    private int sum = 0;
+    private int sum;
+
+    {
+        sum = 0;
+    }
 
     public Thief(int price) {
         this.price = price;
@@ -17,14 +21,14 @@ public class Thief implements MailService {
 
     @Override
     public Sendable processMail(Sendable mail) {
-        String contentParcel = null;
         int contentPrice = 0;
         if (mail instanceof MailPackage) {
-            if (((MailPackage) mail).getContent().getPrice() >= price) {
+            if (((MailPackage) mail).getContent().getPrice() > price) {
                 sum += ((MailPackage) mail).getContent().getPrice();
-                contentParcel = "stones instead of " + ((MailPackage) mail).getContent().getContent();
+                String contentParcel = "stones instead of " + ((MailPackage) mail).getContent().getContent();
+                return new MailPackage(mail.getFrom(), mail.getTo(), new Package(contentParcel, contentPrice));
             }
-            return new MailPackage(mail.getFrom(), mail.getTo(), new Package(contentParcel, contentPrice));
-        } else return mail;
+        }
+        return mail;
     }
 }

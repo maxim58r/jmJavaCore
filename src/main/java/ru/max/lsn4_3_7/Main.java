@@ -50,11 +50,7 @@ public class Main {
                 logger.log(Level.WARNING, "Inspector found illegal package: " + e);
             }
         });
-
         System.out.println(thief.getStolenValue());
-
-//        System.out.println(worker.getRealMailService());
     }
-
 }
 

@@ -15,9 +15,7 @@ public class Inspector extends RuntimeException implements MailService {
                     throw new IllegalPackageException();
                 }
             }
-        }
-        if (mail instanceof MailMessage) {
-            if (((MailMessage) mail).getMessage().contains(stolen)) {
+            if (((MailPackage) mail).getContent().getContent().contains(stolen)) {
                 throw new StolenPackageException();
             }
         }

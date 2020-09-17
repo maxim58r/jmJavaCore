@@ -21,10 +21,10 @@ public class UntrustworthyMailWorker implements MailService {
 
     @Override
     public Sendable processMail(Sendable mail) {
-        Sendable s = mail;
+        Sendable temp = mail;
         for (MailService mailService : mailServices) {
-            s = mailService.processMail(s);
+            temp = mailService.processMail(temp);
         }
-        return getRealMailService().processMail(mail);
+        return getRealMailService().processMail(temp);
     }
 }
