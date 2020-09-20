@@ -1,24 +1,27 @@
 package ru.max.lsn1;
 
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+
 public class Main {
-    public static void main(String args[]) {
-//        Overload test = new Overload();
-//        test.method(null);
-
-        Float f1 = Float.NaN;
-        Float f2 = Float.NaN;
-        System.out.println( ""+ (f1 == f2)+" "+f1.equals(f2)+ " "+(Float.NaN == Float.NaN) );
+    public static void main(String[] args) {
+        System.out.println(isPrime(0));
+        System.out.println(isPrime(-1));
+        System.out.println(isPrime(Integer.MAX_VALUE));
+        System.out.println(isPrime(5));
+        System.out.println(isPrime(-Integer.MAX_VALUE));
+        System.out.println('а');
     }
-    public class Overload{
-        public void method(Object o) {
-            System.out.println("Object");
-        }
-        public void method(java.io.FileNotFoundException f) {
-            System.out.println("FileNotFoundException");
-        }
-        public void method(java.io.IOException i) {
-            System.out.println("IOException");
-        }
 
+    public static boolean isPrime(int num) {
+
+        if (num > 0) {
+            BigInteger bigInteger = BigInteger.valueOf(num);
+            return bigInteger.isProbablePrime(num);
+        } else return false;
     }
 }
+
