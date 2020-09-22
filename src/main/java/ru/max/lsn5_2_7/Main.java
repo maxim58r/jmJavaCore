@@ -7,7 +7,7 @@ import java.io.*;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        InputStream inputStream = new ByteArrayInputStream(new byte[]{/*5, 12, -8, 43,*/ 1,'n'});
+        InputStream inputStream = new ByteArrayInputStream(new byte[]{/*5, 12, -8, 43,*/ 1, 'n'});
         //System.out.println(sumOfStream(inputStream));
         sumOfStream(inputStream);
     }
@@ -17,9 +17,6 @@ public class Main {
         int b;
         while ((b = inputStream.read()) != -1) {
             l += (byte) b;
-            System.out.println(b);
-            System.out.println((byte)b);
-            System.out.println((char) b);
         }
         return l;
     }

@@ -9,6 +9,7 @@ public class Main {
     }
 
     public static String readAsString(InputStream inputStream, Charset charset) throws IOException {
+//        String st = new String(inputStream.readAllBytes(),charset);
         int i;
         StringBuilder str = new StringBuilder();
         try (InputStreamReader br = new InputStreamReader(inputStream, charset)) {
@@ -17,5 +18,6 @@ public class Main {
             }
         }
         return str.toString();
+//        return st;
     }
 }
