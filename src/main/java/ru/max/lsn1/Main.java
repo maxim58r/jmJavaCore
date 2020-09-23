@@ -14,6 +14,7 @@ public class Main {
         System.out.println(isPrime(5));
         System.out.println(isPrime(-Integer.MAX_VALUE));
         System.out.println('а');
+        ProcessBuilder pb = new ProcessBuilder();
     }
 
     public static boolean isPrime(int num) {
