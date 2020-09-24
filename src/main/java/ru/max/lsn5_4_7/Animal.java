@@ -6,6 +6,10 @@ import java.util.Objects;
 class Animal implements Serializable {
     private final String name;
 
+    public String getName() {
+        return name;
+    }
+
     public Animal(String name) {
         this.name = name;
     }
