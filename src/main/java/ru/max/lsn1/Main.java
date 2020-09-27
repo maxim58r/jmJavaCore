@@ -1,8 +1,6 @@
 package ru.max.lsn1;
 
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 
@@ -14,7 +12,11 @@ public class Main {
         System.out.println(isPrime(5));
         System.out.println(isPrime(-Integer.MAX_VALUE));
         System.out.println('а');
+
         ProcessBuilder pb = new ProcessBuilder();
+        File file;
+        ObjectOutputStream objectOutputStream = null;
+//        objectOutputStream.writeObject();
     }
 
     public static boolean isPrime(int num) {

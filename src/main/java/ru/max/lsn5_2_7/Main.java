@@ -18,6 +18,7 @@ public class Main {
         while ((b = inputStream.read()) != -1) {
             l += (byte) b;
         }
+        inputStream.close();
         return l;
     }
 }
