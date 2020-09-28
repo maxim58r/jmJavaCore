@@ -7,19 +7,30 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
+//        1 2 3 4 5 6 7 8 9 10
 
         Scanner sc = new Scanner(System.in);
-        String[] str = sc.nextLine().split(" ");
-        Set<Integer> st = new  TreeSet<>();
-
-        for (var i : str) {
-           var j = Integer.parseInt(i);
-            if (j % 2 == 0) {
+//        Deque<Integer> queue = new ArrayDeque<Integer>(sc.());
+//        System.out.println(Arrays.toString(queue.toArray()));
+        String[] str = sc.nextLine().split("[ ]+");
+        Set<Integer> st = new TreeSet<>(Comparator.reverseOrder());
+//        st.iterator().forEachRemaining(integer -> );
+        int count = 0;
+        for (String i : str) {
+            count++;
+            int j = 0;
+            try {
+                j = Integer.parseInt(i);
+            } catch (NumberFormatException e) {
+            }
+            if (count % 2 == 0) {
                 st.add(j);
             }
         }
-        Spliterator<Integer> integerSpliterator = st.spliterator();
-        integerSpliterator;
-        System.out.println(st);
+        StringBuilder sb = new StringBuilder();
+        for (int i : st) {
+            sb.append(i).append(" ");
+        }
+        System.out.println(sb.toString().trim());
     }
 }
