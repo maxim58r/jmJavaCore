@@ -2,6 +2,7 @@ package ru.max.lsn6_2_15;
 
 import java.io.Reader;
 import java.nio.CharBuffer;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
@@ -12,6 +13,7 @@ public class Main {
         //Твой код здесь
         CharSequence charBuffer;
         String str;
-        str.getChars();
+//        str.getChars();
+        return new HashMap<>();
     }
 }

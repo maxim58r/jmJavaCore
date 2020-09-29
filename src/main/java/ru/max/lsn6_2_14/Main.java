@@ -5,32 +5,23 @@ import java.util.*;
 /**
  * @author Serov Maxim
  */
+
+//        1 2 3 4 5 6 7 8 9 10
 public class Main {
     public static void main(String[] args) {
-//        1 2 3 4 5 6 7 8 9 10
 
+        Deque<Integer> dq = new ArrayDeque<>();
         Scanner sc = new Scanner(System.in);
-//        Deque<Integer> queue = new ArrayDeque<Integer>(sc.());
-//        System.out.println(Arrays.toString(queue.toArray()));
-        String[] str = sc.nextLine().split("[ ]+");
-        Set<Integer> st = new TreeSet<>(Comparator.reverseOrder());
-//        st.iterator().forEachRemaining(integer -> );
         int count = 0;
-        for (String i : str) {
+        while (sc.hasNextInt()) {
             count++;
-            int j = 0;
-            try {
-                j = Integer.parseInt(i);
-            } catch (NumberFormatException e) {
-            }
+            int i = sc.nextInt();
             if (count % 2 == 0) {
-                st.add(j);
+                dq.addFirst(i);
             }
         }
-        StringBuilder sb = new StringBuilder();
-        for (int i : st) {
-            sb.append(i).append(" ");
+        for (int j : dq) {
+            System.out.print(j + " ");
         }
-        System.out.println(sb.toString().trim());
     }
 }
