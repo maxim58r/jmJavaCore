@@ -16,11 +16,8 @@ public class Main {
         int b;
         while ((b = inputStream.read()) != -1) {
             if ((byte) b % 2 == 0) {
-                try {
+                try (inputStream; outputStream) {
                     outputStream.write(b);
-                } finally {
-                    inputStream.close();
-                    outputStream.close();
                 }
             }
         }
