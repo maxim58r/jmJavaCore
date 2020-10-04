@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Reader reader = null;
         try {
-            reader = new FileReader("C:\\Users\\400103\\IdeaProjects\\jmJavaCore\\src\\main\\java\\ru\\max\\text.txt");
+            reader = new FileReader("C:\\Users\\400103\\IdeaProjects\\jmJavaCore\\src\\main\\java\\ru\\max\\lsn6_2_15\\text.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
