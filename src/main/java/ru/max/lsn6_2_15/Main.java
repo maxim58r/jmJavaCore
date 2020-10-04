@@ -12,7 +12,6 @@ public class Main {
             e.printStackTrace();
         }
         getSalesMap(reader).forEach((v, k) -> System.out.println(v + k));
-//        System.out.println(getSalesMap(reader));
     }
 
     /*Алексей 3000
