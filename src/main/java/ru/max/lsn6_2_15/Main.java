@@ -11,7 +11,8 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(getSalesMap(reader));
+        getSalesMap(reader).forEach((v, k) -> System.out.println(v + k));
+//        System.out.println(getSalesMap(reader));
     }
 
     /*Алексей 3000
@@ -22,19 +23,11 @@ public class Main {
 
     public static Map<String, Long> getSalesMap(Reader reader) {
         Scanner sc = new Scanner(reader);
+        Map<String, Long> map = new HashMap<>();
         while (sc.hasNextLine()) {
-            String[]  str = sc.nextLine().split(" ");
-            Map<String,Long> map = new HashMap<>();
-            map.merge( );
-            for (var i : str) {
-                System.out.print(i);
-            }
-            System.out.println();
-            Map<String, Long> mp = new LinkedHashMap<>();
+            String[] str = sc.nextLine().split(" ");
+            map.merge(str[0], Long.parseLong(str[1]), Long::sum);
         }
-        String s;
-        s.concat()
-
-        return new HashMap<>();
+        return map;
     }
 }
