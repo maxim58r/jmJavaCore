@@ -16,6 +16,6 @@ public class Main {
             Predicate<? super T> condition,
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
-        return ternaryOperator(condition, ifTrue, ifFalse) -> condition::test ? (Function<T, U>) ifTrue : (Function<T, U>) ifFalse;
+        return U -> condition.test(U) ? ifTrue.apply(U) : ifFalse.apply(U);
     }
 }
