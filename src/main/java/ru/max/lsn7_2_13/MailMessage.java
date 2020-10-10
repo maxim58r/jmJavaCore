@@ -1,28 +1,27 @@
 package ru.max.lsn7_2_13;
 
-/**
- * @author Serov Maxim
- */
-public class MailMessage {
+public class MailMessage<T> implements Sendable<T> {
     private final String from;
     private final String to;
-    private final String content;
+    private final T content;
 
-    public MailMessage(String from, String to, String content) {
+    public MailMessage (String from, String to, T content) {
         this.from = from;
         this.to = to;
         this.content = content;
     }
 
+    @Override
     public String getFrom() {
         return from;
     }
 
+    @Override
     public String getTo() {
         return to;
     }
 
-    public String getContent() {
+    public T getContent() {
         return content;
     }
 }

@@ -1,13 +1,28 @@
 package ru.max.lsn7_2_13;
 
-/**
- * @author Serov Maxim
- */
-public class Salary {
-    public Salary(String work, String employee, int salary) {
+public class Salary<T> implements Sendable<T> {
+    private final String from;
+    private final String to;
+    private final T content;
+
+    public Salary(String from, String to, T content) {
+        this.from = from;
+        this.to = to;
+        this.content = content;
     }
 
+    @Override
+    public String getFrom() {
+        return from;
+    }
+
+    @Override
     public String getTo() {
-        return null;
+        return to;
+    }
+
+
+    public T getContent() {
+        return content;
     }
 }

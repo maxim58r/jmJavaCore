@@ -18,7 +18,7 @@ public class Main {
                 .sorted(Map.Entry.<String, Long>comparingByValue(Collections.reverseOrder()).thenComparing(Map.Entry.comparingByKey()))
                 .limit(10)
                 .map(stringLongEntry -> stringLongEntry.getKey())
-                .collect(Collectors.<String>toList());
+                .collect(Collectors.toList());
         for (String s : lst) {
             System.out.println(s);
         }
