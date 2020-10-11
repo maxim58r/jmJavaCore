@@ -11,18 +11,12 @@ public class MailService<T> implements Consumer<Sendable<T>> {
     List<T> lst = new ArrayList<>();
 
     public Map<String, List<T>> getMailBox() {
-
         return map;
     }
 
-
     @Override
-    public void accept(Sendable<T> sendable) {
-        sendable.getFrom();
-        sendable.getTo();
-        sendable.getContent();
-        lst.
-        map.put(sendable.getTo(), sendable.getContent());
-
+    public void accept(Sendable<T> t) {
+        lst.add(t.getContent());
+        map.merge(t.getTo(), lst, (ts, ts2) -> new ArrayList<>(ts2));
     }
 }

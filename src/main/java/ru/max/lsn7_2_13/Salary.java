@@ -1,24 +1,11 @@
 package ru.max.lsn7_2_13;
 
-public class Salary<T> implements Sendable<T> {
-    private final String from;
-    private final String to;
+public class Salary<T> extends AbstractSendable<T> {
     private final T content;
 
     public Salary(String from, String to, T content) {
-        this.from = from;
-        this.to = to;
+        super(from, to);
         this.content = content;
-    }
-
-    @Override
-    public String getFrom() {
-        return from;
-    }
-
-    @Override
-    public String getTo() {
-        return to;
     }
 
     @Override
