@@ -21,7 +21,7 @@ public class Salary<T> implements Sendable<T> {
         return to;
     }
 
-
+    @Override
     public T getContent() {
         return content;
     }

@@ -1,11 +1,11 @@
 package ru.max.lsn7_2_13;
 
-public class MailMessage<T> implements Sendable<T> {
+public class MailMessage implements Sendable {
     private final String from;
     private final String to;
-    private final T content;
+    private final String content;
 
-    public MailMessage (String from, String to, T content) {
+    public MailMessage (String from, String to, String content) {
         this.from = from;
         this.to = to;
         this.content = content;
@@ -20,8 +20,8 @@ public class MailMessage<T> implements Sendable<T> {
     public String getTo() {
         return to;
     }
-
-    public T getContent() {
+    @Override
+    public String getContent() {
         return content;
     }
 }
