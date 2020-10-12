@@ -6,5 +6,4 @@ public interface Sendable<T> {
     String getTo();
 
     T getContent();
-
 }

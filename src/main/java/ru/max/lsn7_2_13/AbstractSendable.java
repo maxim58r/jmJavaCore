@@ -25,5 +25,4 @@ public abstract class AbstractSendable<T> implements Sendable<T> {
     public T getContent() {
         return content;
     }
-
 }
