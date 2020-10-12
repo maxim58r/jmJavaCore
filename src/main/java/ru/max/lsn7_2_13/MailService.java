@@ -1,9 +1,6 @@
 package ru.max.lsn7_2_13;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class MailService<T> implements Consumer<Sendable<T>> {
@@ -13,7 +10,6 @@ public class MailService<T> implements Consumer<Sendable<T>> {
             return super.get(key);
         }
     };
-    List<T> lst = new ArrayList<>();
 
     public Map<String, List<T>> getMailBox() {
         return map;
@@ -21,7 +17,18 @@ public class MailService<T> implements Consumer<Sendable<T>> {
 
     @Override
     public void accept(Sendable<T> t) {
-        lst.add(t.getContent());
-        map.merge(t.getTo(), lst, (ts, ts2) -> new ArrayList<>(ts2));
+        List<T> lst;
+        if (map.containsKey(t.getTo())) {
+            lst = map.get(t.getTo());
+            lst.add(t.getContent());
+            map.put(t.getTo(), lst);
+//            System.out.println(map + "2");
+        } else /*if (!(map.containsKey(t.getTo()))) */{
+            List<T> lst1 = new ArrayList<>();
+            lst1.add(t.getContent());
+            map.put(t.getTo(), lst1);
+//            System.out.println(map + "1");
+        }
+        /*else map.putIfAbsent(t.getTo(), new ArrayList<>());*/
     }
 }
