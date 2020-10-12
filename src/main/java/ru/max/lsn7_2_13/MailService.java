@@ -7,7 +7,14 @@ public class MailService<T> implements Consumer<Sendable<T>> {
     Map<String, List<T>> map = new LinkedHashMap<String, List<T>>() {
         @Override
         public List<T> get(Object key) {
-            return super.get(key);
+            if (containsKey(key)) {
+                return super.get(key);
+            } else {
+                List<T> lst = new ArrayList<>();
+                put((String) key, lst);
+                return lst;
+            }
+
         }
     };
 
@@ -20,15 +27,10 @@ public class MailService<T> implements Consumer<Sendable<T>> {
         List<T> lst;
         if (map.containsKey(t.getTo())) {
             lst = map.get(t.getTo());
-            lst.add(t.getContent());
-            map.put(t.getTo(), lst);
-//            System.out.println(map + "2");
-        } else /*if (!(map.containsKey(t.getTo()))) */{
-            List<T> lst1 = new ArrayList<>();
-            lst1.add(t.getContent());
-            map.put(t.getTo(), lst1);
-//            System.out.println(map + "1");
+        } else {
+            lst = new ArrayList<>();
         }
-        /*else map.putIfAbsent(t.getTo(), new ArrayList<>());*/
+        lst.add(t.getContent());
+        map.put(t.getTo(), lst);
     }
 }

@@ -12,11 +12,12 @@ public class Main {
         mp.put("5", 60);
         System.out.println(mp.get("5"));
         System.out.println(mp.get(6));
-        if (mp.containsKey(6)) {
+        if (mp.get(6) == null) {
+            System.out.println("nullll");
 //            map.put(null, Collections.emptyList());
 //            map.putIfAbsent("name", "Gus");
             mp.put("6", 6);
-            System.out.println(mp);
+//            System.out.println(mp);
         }
     }
 }
