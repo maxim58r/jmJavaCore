@@ -10,18 +10,14 @@ public class MailService<T> implements Consumer<Sendable<T>> {
             if (containsKey(key)) {
                 return super.get(key);
             } else {
-                List<T> lst = new ArrayList<>();
-                put((String) key, lst);
-                return lst;
+                return new ArrayList<>();
             }
 
         }
     };
-
     public Map<String, List<T>> getMailBox() {
         return map;
     }
-
     @Override
     public void accept(Sendable<T> t) {
         List<T> lst;
